@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+	  
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  The world is your oyster.
+  <p>
+    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+  </p>
+  <div class="page-home">
+  <p>dcsdcsdc</p>
+  </div>
+  
+  
+  <p> This is a test . </p>
+  
+  
+  
+  
+  <div class="input-controls">
+    <h4>"Two way bindings"</h4>
+    <input [(ngModel)]="name" />
+    <div>Current Value: {{name}}</div>
+</div>
+
+<div class="input-controls">
+	
+    <h4>Select a gender</h4>
+    <div>
+        <label>
+		<style>background-color="red"</style>
+            <input #male name="gender" type="radio" value="Male" (click)="gender = male.value" />
+            Male
+        </label>
+		<style>background-color="red"</style>
+    </div>
+    <div>
+        <label>
+            <input #female name="gender" type="radio"  value="Female" (click)="gender = female.value" />
+            Female
+        </label>
+    </div>
+    <div>
+        Selected gender is <strong>{{gender}}</strong>
+    </div>
+</div>
+
+<div class="input-controls">
+    <h4>Select your programming skills</h4>
+    <div>
+        <label>
+            <input #angularcb type="checkbox" (change)="angular = angularcb.checked" />
+            Angular
+        </label>
+    </div>
+    <div>
+        <label>
+            <input #javascriptcb type="checkbox" (change)="javascript = javascriptcb.checked" />
+            JavaScript
+        </label>
+    </div>
+    <div>
+        <label>
+            <input #csharpcb type="checkbox" (change)="csharp = csharpcb.checked" />
+            C#
+        </label>
+    </div>
+</div>
+<div>
+    Selected Skills:
+    <ul>
+        <li *ngIf="angular">Angular</li>
+        <li *ngIf="javascript">JavaScript</li>
+        <li *ngIf="csharp">C#</li>
+    </ul>
+</div>
+
+
+<div class="col-md-6 col-md-offset-3">
+    <h2>Register</h2>
+    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required />
+            <div *ngIf="f.submitted && !firstName.valid" class="help-block">First Name is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
+            <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        </div>
+        
+    </form>
+</div>
+
+	
+</ion-content>
