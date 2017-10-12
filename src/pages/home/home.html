@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      SignUp
 	  
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding="'true'" scroll="'true'">
 
   The world is your oyster.
   <p>
@@ -19,8 +19,69 @@
   
   
   <p> This is a test . </p>
+
+
+  <form class="list">
+            <ion-list>
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    </label>
+                    <input type="text" name="text" placeholder="First" ng-model="data.firstname" size=21 >
+                    <input type="text" name="text" placeholder="Last" ng-model="data.lastname" size=21>
+                    <a href="#" class=" icon user"></a>
+
+            <br>
+            <br>
+
+                <label class="item item-input">
+                    <span class="input-label">E-mail</span>
+                </label>
+                    <input type="email" name="email" placeholder="" ng-model="data.username"size=45 >
+        
+            <br>
+            <br>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                </label>
+                    <input type="password" placeholder="" ng-model="data.password" size=45 >
+
+            <br>
+            <br>
+                <label class="item item-input">
+                    <span class="input-label">Phone</span>
+                </label>
+                    <input type="string" placeholder="" pattern="[0-9]" minlength=10 maxlength=10 ng-model="data.phone" required size=45 >
+            </ion-list>
+
+            <label class="item item-input">
+                <span class="input-label">Address</span>
+            </label>
+                <input type="text" placeholder="" ng-model="data.address" size=45>
+            <br>
+            <br>
+            <label class="item item-input">
+                <span class="input-label">Pincode</span>
+            </label>
+                <input type="string" pattern="[0-9]" placeholder="" ng-model="data.pincode" size=45>
+            <br>
+            <br>
+
+             <label class="item item-input">
+                <span class="input-label">Gender</span>
+            </label>
+           <input #male name="gender" type="radio" value="Male" (click)="gender = male.value" >Male
+           <input #female name="gender" type="radio"  value="Female" (click)="gender = female.value" />Female
+        
+            <br>
+            <br>
+            <button ng-click="signup(data)" class="button button-stable button-block ">Sign up</button>
+            <br>
+            <input type="submit" value="SignUp" ng.model="data.signup">
+        </form>
   
   
+  
+
   
   
   <div class="input-controls">
@@ -34,11 +95,9 @@
     <h4>Select a gender</h4>
     <div>
         <label>
-		<style>background-color="red"</style>
             <input #male name="gender" type="radio" value="Male" (click)="gender = male.value" />
             Male
         </label>
-		<style>background-color="red"</style>
     </div>
     <div>
         <label>
@@ -50,6 +109,7 @@
         Selected gender is <strong>{{gender}}</strong>
     </div>
 </div>
+
 
 <div class="input-controls">
     <h4>Select your programming skills</h4>
@@ -73,6 +133,20 @@
     </div>
 </div>
 <div>
+    <label>
+
+        <input type="email" size="40" list="defaultEmails" placeholder="email is">
+
+            <datalist id="defaultEmails">
+              <option value="jbond007@mi6.defence.gov.uk">
+              <option value="jbourne@unknown.net">
+              <option value="nfury@shield.org">
+              <option value="tony@starkindustries.com">
+              <option value="hulk@grrrrrrrr.arg">
+            </datalist>
+    </label>
+</div>
+<div>
     Selected Skills:
     <ul>
         <li *ngIf="angular">Angular</li>
@@ -82,32 +156,6 @@
 </div>
 
 
-<div class="col-md-6 col-md-offset-3">
-    <h2>Register</h2>
-    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="firstName">First Name</label>
-            <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required />
-            <div *ngIf="f.submitted && !firstName.valid" class="help-block">First Name is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
-            <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-        </div>
-        
-    </form>
-</div>
 
 	
 </ion-content>

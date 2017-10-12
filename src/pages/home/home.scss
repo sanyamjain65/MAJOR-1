@@ -1,3 +1,38 @@
+/****************************************************************************8
 page-home {
 
+
+label { display: inline-block; width: 100px; text-align: left; font-family: Georgia, Helvetica, sans-serif;
+color:#0000FF; }
+input {
+  display: inline-block;
+  background-color: lightblue;
+  font-family: Georgia, Helvetica, sans-serif;
+
+
+}
+input:invalid {
+    border-color: #FF0000;
+}
+input,
+input:valid {
+    border-color: #ccc;
+}
+}
+
+
+
+
+
+*************************************************************************************/
+
+
+
+
+
+
+page-home {
+  .home {
+    background: #56CA96;
+  }
 }
