@@ -11,14 +11,13 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
   }
 
-  
+ 
   gender:string;
     javascript = false;
     angular = false;
     csharp = false;
     name = 'Two way bound';
-	firstName = false;
-	lastName= false;
+	
   
   
 }

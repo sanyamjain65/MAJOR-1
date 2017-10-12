@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="login-content" padding>
+  <div class="login-box">
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+
+            <ion-item>
+              <ion-input type="text" name="first" placeholder="First" ng-model="registerCredentials.firstname" size=21 >
+
+              </ion-input>
+              <ion-input type="text" name="last" placeholder="Last" ng-model="registerCredentials.lastname" size=21>
+              </ion-input>
+
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Email" name="email" ng-model="registerCredentials.email"  size=45 required>
+
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" size=45 required>
+
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="string" placeholder="Phone Number" name=phone pattern="[0-9]" minlength=10 maxlength=10 ng-model="data.phone" size=45 required>
+
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Address" name=address ng-model="data.address" size=45></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="string" pattern="[0-9]" placeholder="PinCode" name=pincode ng-model="data.pincode" size=45></ion-input>
+            </ion-item>
+
+            <ion-item>
+             <ion-input #male name="gender" type="radio" value="Male" (click)="gender = male.value" >Male</ion-input>
+             <ion-input #female name="gender" type="radio"  value="Female" (click)="gender = female.value" >Female
+             </ion-input>
+           </ion-item>
+         </ion-list>
+       </ion-col>
+     </ion-row>
+
+     <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</div>
+</ion-content>
