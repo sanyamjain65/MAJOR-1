@@ -1,8 +1,10 @@
-import { AuthService } from '../../providers/auth-service/auth-service';
+import { UserService } from '../../services/user.service';
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
 
 import { RegisterPage } from '../register/register';
+import { HomePage } from '../home/home';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -11,19 +13,23 @@ export class LoginPage {
   loading: Loading;
   registerCredentials = { email: '', password: '' };
  
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
+  constructor(private nav: NavController, private user: UserService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
  
   public createAccount() {
+    
     this.nav.push(RegisterPage);
   }
  
-  public login() {
+  login() {
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {        
-        this.nav.setRoot('HomePage');
+    this.user.login(this.registerCredentials).subscribe(allowed => {
+      console.log(allowed);
+      if (allowed.result) {        
+         this.nav.push(HomePage);
       } else {
-        this.showError("Access Denied");
+        this.showError("You are not registered");
+        this.nav.push(RegisterPage);
+        
       }
     },
       error => {
@@ -47,6 +53,6 @@ export class LoginPage {
       subTitle: text,
       buttons: ['OK']
     });
-    alert.present(prompt);
+    alert.present();
   }
 }

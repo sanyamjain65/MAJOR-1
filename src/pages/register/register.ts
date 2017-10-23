@@ -1,4 +1,4 @@
-import { AuthService } from '../../providers/auth-service/auth-service';
+import { UserService } from '../../services/user.service';
 import { Component } from '@angular/core';
 import { NavController, AlertController, IonicPage } from 'ionic-angular';
 
@@ -10,13 +10,13 @@ import { NavController, AlertController, IonicPage } from 'ionic-angular';
 })
 export class RegisterPage {
   createSuccess = false;
-  registerCredentials = { first: '',last: '',email: '', password: '',phone:'',address:'',pincode:'',gender:'' };
+  registerCredentials = { name: '',email: '', password: '',phone_number:'',address:'',pincode:'',gender:'' };
  
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
+  constructor(private nav: NavController, private user: UserService, private alertCtrl: AlertController) { }
  
-  public register() {
-    this.auth.register(this.registerCredentials).subscribe(success => {
-      if (success) {
+  register() {
+    this.user.register(this.registerCredentials).subscribe(success => {
+      if (success.result) {
         this.createSuccess = true;
         this.showPopup("Success", "Account created.");
       } else {
@@ -27,6 +27,13 @@ export class RegisterPage {
         this.showPopup("Error", error);
       });
   }
+  genderMale(){
+    this.registerCredentials.gender = "Male";
+  }
+  genderFemale(){
+    this.registerCredentials.gender = "Female";
+  }
+
  
   showPopup(title, text) {
     let alert = this.alertCtrl.create({
