@@ -10,7 +10,7 @@ import { NavController, AlertController, IonicPage } from 'ionic-angular';
 })
 export class RegisterPage {
   createSuccess = false;
-  registerCredentials = { first: '',last: '',email: '', password: '',phone:'',address:'',pincode:'',gender:'' };
+  registerCredentials = { name: '',email: '', password: '',phone:'',address:'',pincode:'',gender:'' };
  
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
  

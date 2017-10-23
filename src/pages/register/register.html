@@ -11,12 +11,10 @@
           <ion-list inset>
 
             <ion-item>
-              <ion-input type="text" name="first" placeholder="First" ng-model="registerCredentials.firstname" size=21 >
+              <ion-input type="text" name="first" placeholder="Name" ng-model="registerCredentials.name" size=45 >
+            </ion-input>
 
-              </ion-input>
-              <ion-input type="text" name="last" placeholder="Last" ng-model="registerCredentials.lastname" size=21>
-              </ion-input>
-
+              
             </ion-item>
 
             <ion-item>
@@ -26,31 +24,50 @@
             </ion-item>
 
             <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" size=45 required>
+              <ion-input type="password" placeholder="Password" name="password" ng-model="registerCredentials.password" size=45 required>
 
               </ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="string" placeholder="Phone Number" name=phone pattern="[0-9]" minlength=10 maxlength=10 ng-model="data.phone" size=45 required>
+              <ion-input type="string" placeholder="Phone Number" name="phone" pattern="[0-9]" minlength=10 maxlength=10 ng-model="registerCredentials.phone" size=45 required>
 
               </ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="text" placeholder="Address" name=address ng-model="data.address" size=45></ion-input>
+              <ion-input type="text" placeholder="Address" name="address" ng-model="registerCredentials.address" size=45></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="string" pattern="[0-9]" placeholder="PinCode" name=pincode ng-model="data.pincode" size=45></ion-input>
+              <ion-input type="string" pattern="[0-9]" placeholder="PinCode" name="pincode" ng-model="registerCredentials.pincode" size=45></ion-input>
             </ion-item>
 
+            <!-------<ion-item>
+              <ion-input #male name="gender" type="radio" value="Male" (click)="gender = male.value" >Male
+              </ion-input>
+            </ion-item>
             <ion-item>
-             <ion-input #male name="gender" type="radio" value="Male" (click)="gender = male.value" >Male</ion-input>
-             <ion-input #female name="gender" type="radio"  value="Female" (click)="gender = female.value" >Female
-             </ion-input>
-           </ion-item>
+              <ion-input #female name="gender" type="radio"  value="Female" (click)="gender = female.value" >Female
+              </ion-input>
+            </ion-item>
+            -------->
          </ion-list>
+
+
+        <ion-list radio-group ng-model="gender">
+        <ion-row>
+  <ion-item>
+    <ion-label>Male</ion-label>
+    <ion-radio value="male" size=21></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>Female</ion-label>
+    <ion-radio value="female" checked size=21></ion-radio>
+  </ion-item>
+</ion-row>
+</ion-list>
+
        </ion-col>
      </ion-row>
 
